@@ -73,7 +73,7 @@ module Prawn
       Prawn::Document.new(
         page_size: state.page.size, page_layout: state.page.layout,
         left_margin: bounds.absolute_left,
-        top_margin: state.page.dimensions[-1] - (y == :keep ? pdf.cursor : y),
+        top_margin: state.page.dimensions[-1] - (y == :keep ? state.page.cursor : y),
         right_margin: state.page.dimensions[-2] - bounds.absolute_right,
         bottom_margin: state.page.margins[:bottom]
       ) do |pdf|
