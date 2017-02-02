@@ -75,6 +75,7 @@ module Prawn
         right_margin: state.page.dimensions[-2] - bounds.absolute_right,
         bottom_margin: state.page.margins[:bottom]
       ) do |pdf|
+        debugger
         pdf.text_formatter = @text_formatter.dup
         pdf.font_families.update font_families
         pdf.font font.family
