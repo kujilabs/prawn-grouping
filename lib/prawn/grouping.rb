@@ -20,7 +20,7 @@ module Prawn
       too_tall             = options[:too_tall]
       fits_new_context     = options[:fits_new_context]
       fits_current_context = options[:fits_current_context]
-      debugger
+      #debugger
       # create a temporary document with current context and offset
       pdf = create_box_clone(y)
       pdf.exec(&b)
@@ -67,7 +67,7 @@ module Prawn
     private
 
     def create_box_clone(y = :keep)
-      debugger
+      #debugger
       Prawn::Document.new(
         page_size: state.page.size, page_layout: state.page.layout,
         left_margin: bounds.absolute_left,
@@ -75,14 +75,14 @@ module Prawn
         right_margin: state.page.dimensions[-2] - bounds.absolute_right,
         bottom_margin: state.page.margins[:bottom]
       ) do |pdf|
-        debugger
+       # debugger
         pdf.text_formatter = @text_formatter.dup
         pdf.font_families.update font_families
         pdf.font font.family
         pdf.font_size font_size
         pdf.default_leading = default_leading
         unless y == :keep
-          pdf.y = y
+          pdf.y = y - pdf.page.margins[:bottom]
         end
       end
     end
