@@ -37,16 +37,12 @@ module Prawn
           if too_tall
             exec(&too_tall)
           end
-            pdf.text %{too tall - before yield #{y.to_s}}          
           yield self
-            pdf.text %{too tall - after yield #{y.to_s}}          
         else
           if fits_new_context
             exec(&fits_new_context)          
           end
-          pdf.text %{fits new context - before move_past_bottom - #{y.to_s}}  
           bounds.move_past_bottom
-          pdf.text %{fits new context - after move_past_bottom - #{y.to_s}}            
           yield self
         end
         false
@@ -55,9 +51,7 @@ module Prawn
         if fits_current_context
           exec(&fits_current_context)
         end
-        pdf.text %{C before yield - #{y.to_s}}          
         yield self
-        pdf.text %{C after yield - #{y.to_s}}
         true
       end
     end
@@ -90,7 +84,7 @@ module Prawn
         pdf.font_size font_size
         pdf.default_leading = default_leading
         unless y == :keep
-          pdf.y = y + state.page.margins[:bottom]
+          pdf.y = y
         end
       end
     end
