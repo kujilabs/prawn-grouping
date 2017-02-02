@@ -20,7 +20,7 @@ module Prawn
       too_tall             = options[:too_tall]
       fits_new_context     = options[:fits_new_context]
       fits_current_context = options[:fits_current_context]
-
+      debugger
       # create a temporary document with current context and offset
       pdf = create_box_clone(y)
       pdf.exec(&b)
