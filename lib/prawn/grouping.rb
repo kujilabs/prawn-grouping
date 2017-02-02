@@ -90,7 +90,7 @@ module Prawn
         pdf.font_size font_size
         pdf.default_leading = default_leading
         unless y == :keep
-          pdf.y = y - pdf.page.margins[:bottom]
+          pdf.y = pdf.cursor
         end
       end
     end
