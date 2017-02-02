@@ -73,7 +73,7 @@ module Prawn
       Prawn::Document.new(
         page_size: state.page.size, page_layout: state.page.layout,
         left_margin: bounds.absolute_left,
-        top_margin: state.page.dimensions[-1] - (y == :keep ? state.page.margins[:top] : y),
+        top_margin: state.page.dimensions[-1] - bounds.absolute_top,
         right_margin: state.page.dimensions[-2] - bounds.absolute_right,
         bottom_margin: state.page.margins[:bottom]
       ) do |pdf|
@@ -83,6 +83,7 @@ module Prawn
         pdf.font font.family
         pdf.font_size font_size
         pdf.default_leading = default_leading
+        pdf.move_down y
 #         unless y == :keep
 #           pdf.y = y
 #         end
