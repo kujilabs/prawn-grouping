@@ -83,7 +83,7 @@ module Prawn
         pdf.font font.family
         pdf.font_size font_size
         pdf.default_leading = default_leading
-        pdf.move_down y
+        pdf.move_down y == :keep ? 0 : y
 #         unless y == :keep
 #           pdf.y = y
 #         end
