@@ -24,6 +24,8 @@ module Prawn
       # create a temporary document with current context and offset
       pdf = create_box_clone(y)
       pdf.exec(&b)
+      
+      pdf.text y.to_s
 
       if pdf.page_count > 1
         # create a temporary document without offset
