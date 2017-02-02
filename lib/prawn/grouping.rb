@@ -67,6 +67,7 @@ module Prawn
     private
 
     def create_box_clone(y = :keep)
+      debugger
       Prawn::Document.new(
         page_size: state.page.size, page_layout: state.page.layout,
         left_margin: bounds.absolute_left,
