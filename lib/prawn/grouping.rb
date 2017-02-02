@@ -29,10 +29,10 @@ module Prawn
 
       if pdf.page_count > 1
         # create a temporary document without offset
-        pdf = create_box_clone
-        pdf.exec(&b)
+        fresh_pdf = create_box_clone
+        fresh_pdf.exec(&b)
 
-        if pdf.page_count > 1
+        if fresh_pdf.page_count > 1
           # does not fit new context
           if too_tall
             exec(&too_tall)
