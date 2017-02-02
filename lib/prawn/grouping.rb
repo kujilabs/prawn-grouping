@@ -25,7 +25,7 @@ module Prawn
       pdf = create_box_clone(y)
       pdf.exec(&b)
       
-      pdf.text y.to_s
+      
 
       if pdf.page_count > 1
         # create a temporary document without offset
@@ -36,6 +36,7 @@ module Prawn
           # does not fit new context
           if too_tall
             exec(&too_tall)
+            pdf.text y.to_s
           end
           yield self
         else
